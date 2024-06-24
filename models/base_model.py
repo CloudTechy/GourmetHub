@@ -50,6 +50,10 @@ class BaseModel(db.Model):
         for key, value in kwargs.items():
             setattr(self, key, value)
         db.session.commit()
+    
+    def to_dict(self):
+        """ Return a dictionary representation of the model """
+        return {c.name: str(getattr(self, c.name)) for c in self.__table__.columns if c.name != "password"}
 
     @classmethod
     def find_by_id(cls, id):
