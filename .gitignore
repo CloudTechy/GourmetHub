@@ -3,3 +3,7 @@ README.md
 __pycache__/
 *.pyc
 /node_modules/
+.env*
+.env
+/instance
+app.py
