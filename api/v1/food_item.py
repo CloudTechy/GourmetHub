@@ -35,8 +35,7 @@ def create_food_item():
         photo_url=data.get('photo_url'),
         status=data.get('status', 'active')
     )
-    db.session.add(new_food_item)
-    db.session.commit()
+    new_food_item.save()
 
     return make_response(jsonify(new_food_item.to_dict()), 201)
 
@@ -93,7 +92,6 @@ def update_food_item(food_item_id):
 
     data = request.get_json()
     food_item.update(**data)
-    db.session.commit()
 
     return jsonify(food_item.to_dict()), 200
 
@@ -112,7 +110,6 @@ def delete_food_item(food_item_id):
     if not food_item:
         abort(404, description="Food item not found")
 
-    db.session.delete(food_item)
-    db.session.commit()
+    food_item.delete()
 
     return jsonify({'message': 'Food item deleted successfully'}), 200

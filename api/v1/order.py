@@ -31,8 +31,7 @@ def create_order():
         total_price=data['total_price'],
         status=data.get('status', 'pending')
     )
-    db.session.add(new_order)
-    db.session.commit()
+    new_order.save()
 
     return make_response(jsonify(new_order.to_dict()), 201)
 
@@ -84,7 +83,6 @@ def update_order(order_id):
 
     data = request.get_json()
     order.update(**data)
-    db.session.commit()
 
     return jsonify(order.to_dict()), 200
 
@@ -103,7 +101,6 @@ def delete_order(order_id):
     if not order:
         abort(404, description="Order not found")
 
-    db.session.delete(order)
-    db.session.commit()
+    order.delete()
 
     return jsonify({'message': 'Order deleted successfully'}), 200

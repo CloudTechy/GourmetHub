@@ -1,7 +1,7 @@
 """This represents the vendor model """
 
-from . import db
-from .base_model import BaseModel
+from models import db
+from models.base_model import BaseModel
 
 
 class Vendor(BaseModel):
@@ -13,6 +13,7 @@ class Vendor(BaseModel):
         db.ForeignKey('users.id'),
         nullable=False)
     food_items = db.relationship('FoodItem', backref='vendor', lazy=True)
+    # user = db.relationship('User', backref='vendors', lazy=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

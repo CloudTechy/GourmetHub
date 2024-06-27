@@ -31,8 +31,7 @@ def create_review():
         rating=data['rating'],
         comment=data['comment']
     )
-    db.session.add(new_review)
-    db.session.commit()
+    new_review.save()
 
     return make_response(jsonify(new_review.to_dict()), 201)
 
@@ -73,7 +72,6 @@ def update_review(review_id):
 
     data = request.get_json()
     review.update(**data)
-    db.session.commit()
 
     return jsonify(review.to_dict()), 200
 
@@ -92,7 +90,6 @@ def delete_review(review_id):
     if not review:
         abort(404, description="Review not found")
 
-    db.session.delete(review)
-    db.session.commit()
+    review.delete()
 
     return jsonify({'message': 'Review deleted successfully'}), 200

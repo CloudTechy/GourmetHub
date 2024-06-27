@@ -1,7 +1,7 @@
 """ This is the Flask User Model """
 
 from flask_login import UserMixin
-from .base_model import BaseModel
+from models.base_model import BaseModel
 from models import db
 from uuid import uuid4 as uuid
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -21,6 +21,7 @@ class User(UserMixin, BaseModel):
     reviews = db.relationship('Review', backref='user', lazy=True)
     orders = db.relationship('Order', backref='user', lazy=True)
     password = db.Column(db.String(128), nullable=False)
+    vendors = db.relationship('Vendor', backref='user', lazy=True)
 
     def __init__(self, *args, **kwargs):
         """ Instantiate the User object """

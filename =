@@ -1,0 +1,238 @@
+Script started on 2024-06-26 22:34:00+01:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="52" LINES="15"]
+        if script.upgrade_ops.is_empty():
+            directives[:] = []
+            logger.info('No changes in schema detected.')
+
+# Ensure the connection is acquired, and then close when done
+def run_migrations_online():
+    connectable = get_engine()
+
+    with connectable.connect() as connection:
+        context.configure(
+            connection=connection,
+            target_metadata=target_metadata,
+            process_revision_directives=process_revision_directives,
+            **current_app.extensions['migrate'].configure_args
+        )
+
+        with context.begin_transaction():
+            context.run_migrations()
+
+if context.is_offline_mode():
+    run_migrations_offline()
+else:
+    run_migrations_online()
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$         if script.upgrade_ops.is_empty():
+[?2004lbash: syntax error near unexpected token `:'
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$             directives[:] = []
+[?2004ldirectives[:]: command not found
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$             logger.info('No changes in schema detected.')
+[?2004lbash: syntax error near unexpected token `'No changes in schema detected.''
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ 
+[?2004l[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ # Ensure the connection is acquired, and then close when done
+[?2004l[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ def run_migrations_online():
+[?2004lbash: syntax error near unexpected token `('
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$     connectable = get_engine()
+[?2004lbash: syntax error near unexpected token `('
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ 
+[?2004l[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$     with connectable.connect() as connection:
+[?2004lbash: syntax error near unexpected token `('
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$         context.configure(
+[?2004lbash: syntax error near unexpected token `newline'
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$             connection=connection, [A
+[?2004l[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$             target_metadata=target_metadata,
+[?2004l[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$             process_revision_directives=process_revision_directives,
+[?2004l[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$             **current_app.extensions['migrate'].configure_args
+[?2004l**current_app.extensions[migrate].configure_args: command not found
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$         )
+[?2004lbash: syntax error near unexpected token `)'
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ 
+[?2004l[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$         with context.begin_transaction():
+[?2004lbash: syntax error near unexpected token `('
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$             context.run_migrations()
+[?2004l[?2004h> 
+[?2004l[?2004h> if context.is_offline_mode():
+[?2004lbash: syntax error near unexpected token `:'
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$     run_migrations_offline()
+[?2004l[?2004h> else:
+[?2004lbash: syntax error near unexpected token `else:'
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$     run_migrations_online()
+[?2004l[?2004h> def run_migrations_online():[C[C# Ensure the connection is acquired, and then close when done[A[C[C[28Ppython3 api/v1/app.py 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cip list | grep flasgger[5PJWTflasgger[C[C[C[2Python3 api/v1/app.py [C[C# Ensure the connection is acquired, and then close when done[A[C[C[22Pdef run_migrations_online():
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K^C[?2004l[?2004h[?2004l
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ def run_migrations_online():[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C# Ensure the connection is acquired, and then close when done[A[12Ppython3 api/v1/app.py 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cip list | grep flasgger[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Python3 api/v1/app.py 
+[?2004lTraceback (most recent call last):
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/api/v1/app.py", line 2, in <module>
+    from models import db
+ModuleNotFoundError: No module named 'models'
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ python3 api/v1/app.py [1P[1P[1P[1P[1P[1P[1P
+[?2004l * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ python3 app.py [7@i/v1/ap[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdef run_migrations_online():[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C# Ensure the connection is acquired, and then close when done[A[12Ppython3 api/v1/app.py 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cip list | grep flasgger[5PJWTjwtJWT[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kflask db init
+[?2004l  Creating directory '/mnt/c/Users/Spacehubtech/ALX/Go
+  urmetHub/migrations' ...  done
+  Creating directory '/mnt/c/Users/Spacehubtech/ALX/Go
+  urmetHub/migrations/versions' ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/alembic.ini ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/env.py ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/README ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/script.py.mako ...  done
+  Please edit configuration/connection/logging
+  settings in '/mnt/c/Users/Spacehubtech/ALX/GourmetHu
+  b/migrations/alembic.ini' before proceeding.
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flask db init
+[?2004l  Creating directory '/mnt/c/Users/Spacehubtech/ALX/Go
+  urmetHub/migrations' ...  done
+  Creating directory '/mnt/c/Users/Spacehubtech/ALX/Go
+  urmetHub/migrations/versions' ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/alembic.ini ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/env.py ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/README ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/script.py.mako ...  done
+  Please edit configuration/connection/logging
+  settings in '/mnt/c/Users/Spacehubtech/ALX/GourmetHu
+  b/migrations/alembic.ini' before proceeding.
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flask db initpython3 app.py [7@i/v1/ap[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdef run_migrations_online():[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C# Ensure the connection is acquired, and then close when done[A[6Pdef run_migrations_online():
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6Ppython3 api/v1/app.py [7P[C[C[C[C[C[2Pflask db init[Kflask db init
+[?2004l  Creating directory '/mnt/c/Users/Spacehubtech/ALX/Go
+  urmetHub/migrations' ...  done
+  Creating directory '/mnt/c/Users/Spacehubtech/ALX/Go
+  urmetHub/migrations/versions' ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/alembic.ini ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/env.py ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/README ...  done
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/script.py.mako ...  done
+  Please edit configuration/connection/logging
+  settings in '/mnt/c/Users/Spacehubtech/ALX/GourmetHu
+  b/migrations/alembic.ini' before proceeding.
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flsdk [K[K[Kd[K[Kask db mo[Kigrate
+[?2004lINFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.autogenerate.compare] Detected added table 'users'
+INFO  [alembic.autogenerate.compare] Detected added table 'vendors'
+INFO  [alembic.autogenerate.compare] Detected added table 'food_items'
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/versions/fb0f034308ca_.py ...  done
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flask f[Kdb migrate
+[?2004lTraceback (most recent call last):
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/bin/flask", line 8, in <module>
+    sys.exit(main())
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask/cli.py", line 1105, in main
+    cli.main()
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask/cli.py", line 386, in decorator
+    return ctx.invoke(f, *args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask_migrate/cli.py", line 109, in migrate
+    _migrate(directory, message, sql, head, splice, branch_label, version_path,
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask_migrate/__init__.py", line 111, in wrapped
+    f(*args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask_migrate/__init__.py", line 170, in migrate
+    command.revision(config, message, autogenerate=True, sql=sql,
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/alembic/command.py", line 236, in revision
+    script_directory.run_env()
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/alembic/script/base.py", line 583, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/alembic/util/pyfiles.py", line 95, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/alembic/util/pyfiles.py", line 113, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/migrations/env.py", line 8, in <module>
+    from models import User, Vendor, FoodItem, Order, Review  # Import all your SQLAlchemy models here
+ImportError: cannot import name 'User' from 'models' (/mnt/c/Users/Spacehubtech/ALX/GourmetHub/models/__init__.py)
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flask db migrate
+[?2004lTraceback (most recent call last):
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/bin/flask", line 8, in <module>
+    sys.exit(main())
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask/cli.py", line 1105, in main
+    cli.main()
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask/cli.py", line 386, in decorator
+    return ctx.invoke(f, *args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask_migrate/cli.py", line 109, in migrate
+    _migrate(directory, message, sql, head, splice, branch_label, version_path,
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask_migrate/__init__.py", line 111, in wrapped
+    f(*args, **kwargs)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/flask_migrate/__init__.py", line 170, in migrate
+    command.revision(config, message, autogenerate=True, sql=sql,
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/alembic/command.py", line 236, in revision
+    script_directory.run_env()
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/alembic/script/base.py", line 583, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/alembic/util/pyfiles.py", line 95, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/venv/lib/python3.10/site-packages/alembic/util/pyfiles.py", line 113, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/mnt/c/Users/Spacehubtech/ALX/GourmetHub/migrations/env.py", line 8, in <module>
+    from models import User, Vendor, FoodItem, Order, Review  # Import all your SQLAlchemy models here
+ImportError: cannot import name 'Review' from 'models' (/mnt/c/Users/Spacehubtech/ALX/GourmetHub/models/__init__.py)
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flask db migrate
+[?2004lINFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+ERROR [flask_migrate] Error: Target database is not up to date.
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flask db migrate
+[?2004lINFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.autogenerate.compare] Detected added table 'users'
+INFO  [alembic.autogenerate.compare] Detected added table 'orders'
+INFO  [alembic.autogenerate.compare] Detected added table 'vendors'
+INFO  [alembic.autogenerate.compare] Detected added table 'food_items'
+INFO  [alembic.autogenerate.compare] Detected added table 'reviews'
+INFO  [alembic.autogenerate.compare] Detected added table 'order_items'
+  Generating /mnt/c/Users/Spacehubtech/ALX/GourmetHub/
+  migrations/versions/202cfaaba57d_.py ...  done
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flask db migrate[K[K[K[K[K[K[Kupgrasde[K[K[Kde
+[?2004lINFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 202cfaaba57d, empty message
+[?2004h]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ [K[A]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtec
+h/ALX/GourmetHub[00m$ [K[A]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ [K[A]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtec
+h/ALX/GourmetHub[00m$ [K[A]0;kazzykelson@DESKTOP-0B03EM2: /mnt/c/Users/Spacehubtech/ALX/GourmetHub[01;32mkazzykelson@DESKTOP-0B03EM2[00m:[01;34m/mnt/c/Users/Spacehubtech/ALX/GourmetHub[00m$ flask db upgrade[K[K[K[K[K[K[Kmigrate
+[?2004lINFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.env] No changes in schema detected

@@ -1,7 +1,7 @@
 """This represents the order_item model """
 
-from . import db
-from .base_model import BaseModel
+from models import db
+from models.base_model import BaseModel
 
 
 class OrderItem(BaseModel):

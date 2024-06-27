@@ -2,7 +2,7 @@
 
 from datetime import datetime
 from uuid import uuid4 as uuid
-from . import db
+from models import db
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
