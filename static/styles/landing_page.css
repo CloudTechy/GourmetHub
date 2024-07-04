@@ -47,7 +47,7 @@ header nav a:hover {
 }
 
 #hero {
-  background-image: url("/static/images/meal-6697944_1920.jpg");
+  background-image: url("./static/images/meal-6697944_1920.jpg");
   background-size: cover;
   background-position: center;
   color: #ffffff;
