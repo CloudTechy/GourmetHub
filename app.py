@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, redirect, url_for, request, flash
+from flask import Flask, jsonify, render_template, redirect, url_for, request, flash, send_from_directory
 from models import db
 from models.user import User
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
@@ -6,7 +6,7 @@ from route import register_blueprints
 from flask_cors import CORS 
 from datetime import datetime
 from jinja2 import Environment
-from os import getenv
+from os import getenv, path
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 
@@ -19,7 +19,7 @@ def inject_now():
     return {'datetime': datetime}
 
 app.config['SECRET_KEY'] = getenv('your_secret_key')
-app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URL', "postgresql://admin:password@localhost/gourmethub") 
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URL', "sqlite:///gourmethub.db") 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -37,9 +37,14 @@ migrate = Migrate(app, db)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 
-
 # Register all blueprints here
 register_blueprints(app)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(path.join(app.root_path, 'static/images'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -48,9 +53,6 @@ def page_not_found(e):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
-app.route("/")
-def home():
-    return jsonify({"home": "Resource not found"})
 
 if __name__ == '__main__':
     with app.app_context():
