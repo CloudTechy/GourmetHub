@@ -18,9 +18,9 @@ app = Flask(__name__)
 def inject_now():
     return {'datetime': datetime}
 
-app.config['SECRET_KEY'] = getenv('your_secret_key')
-app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URL', "sqlite:///gourmethub.db") 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = getenv('SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI', 'sqlite:///db.sqlite3')
 
 db.init_app(app)
 login_manager = LoginManager(app)
@@ -55,6 +55,6 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
     app.run(debug=True)

@@ -7,3 +7,4 @@ __pycache__/
 /instance
 /migrations
 static/node_modules
+.vercel
