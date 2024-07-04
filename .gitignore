@@ -1,9 +1,9 @@
 /venv/
 __pycache__/
 *.pyc
-/node_modules/
+/node_modules
 .env*
 .env
 /instance
-app.py
 /migrations
+static/node_modules
