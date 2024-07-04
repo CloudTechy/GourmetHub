@@ -142,7 +142,7 @@ section {
 }
 
 #features li {
-  background: url("/static/images/icon-check.png") no-repeat left center;
+  background: url("./static/images/icon-check.png") no-repeat left center;
   padding-left: 2rem;
   margin-bottom: 1rem;
 }
