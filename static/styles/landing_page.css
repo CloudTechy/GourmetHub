@@ -47,7 +47,7 @@ header nav a:hover {
 }
 
 #hero {
-  background-image: url("./static/images/meal-6697944_1920.jpg");
+  background-image: url("/static/images/meal-6697944_1920.jpg");
   background-size: cover;
   background-position: center;
   color: #ffffff;
@@ -119,8 +119,16 @@ section {
 
 .container .text,
 .container .image {
-  flex: 1;
+  flex: 1 1 45%; /* Adjust flex basis for medium screens */
   padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container .text,
+  .container .image {
+    flex: 1 1 100%; /* Full width on smaller screens */
+    padding: 0.5rem;
+  }
 }
 
 .container .image img {
@@ -142,7 +150,7 @@ section {
 }
 
 #features li {
-  background: url("./static/images/icon-check.png") no-repeat left center;
+  background: url("/static/images/icon-check.png") no-repeat left center;
   padding-left: 2rem;
   margin-bottom: 1rem;
 }
