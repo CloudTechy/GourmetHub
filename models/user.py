@@ -20,7 +20,7 @@ class User(UserMixin, BaseModel):
     vendors = db.relationship('Vendor', backref='user', lazy=True)
     reviews = db.relationship('Review', backref='user', lazy=True)
     orders = db.relationship('Order', backref='user', lazy=True)
-    password = db.Column(db.String(128), nullable=False)
+    password = db.Column(db.String(256), nullable=False)
     vendors = db.relationship('Vendor', backref='user', lazy=True)
 
     def __init__(self, *args, **kwargs):
@@ -29,6 +29,6 @@ class User(UserMixin, BaseModel):
 
     def __setattr__(self, name, value):
         """sets a password with md5 encryption"""
-        if name == "password":
-            value = md5(value.encode()).hexdigest()
+        # if name == "password":
+        #     value = md5(value.encode()).hexdigest()
         super().__setattr__(name, value)

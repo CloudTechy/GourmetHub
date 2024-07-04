@@ -1,8 +1,9 @@
-from flask import Blueprint, jsonify, request, abort
+from flask import Blueprint, jsonify, request, abort, make_response
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db
 from models.user import User
+import os
 
 auth_api = Blueprint('auth_api', __name__)
 
@@ -38,10 +39,9 @@ def register():
     if User.query.filter_by(email=data['email']).first():
         abort(400, description="User already exists")
 
-    data['password'] = generate_password_hash(data['password'], method='sha256')
+    data['password'] = generate_password_hash(data['password'], method='pbkdf2:sha256')
     user = User(**data)
-    db.session.add(user)
-    db.session.commit()
+    user.save()
 
     return jsonify(message="User registered successfully"), 201
 
@@ -75,9 +75,11 @@ def login():
         abort(400, description="Missing email or password")
 
     user = User.query.filter_by(email=data['email']).first()
-
+    
     if not user or not check_password_hash(user.password, data['password']):
         abort(401, description="Invalid email or password")
 
     access_token = create_access_token(identity=str(user.id))
-    return jsonify(access_token=access_token), 200
+    response = jsonify(message="Login successful")
+    response.headers['token'] = access_token
+    return response, 200

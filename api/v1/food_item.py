@@ -4,7 +4,7 @@ from models.food_item import FoodItem
 
 food_item_api = Blueprint('food_item_api', __name__)
 
-@food_item_api.route('/food_items', methods=['POST'])
+@food_item_api.route('/fooditems', methods=['POST'], strict_slashes=False)
 def create_food_item():
     """
     Create a new food item.
@@ -27,19 +27,12 @@ def create_food_item():
         abort(400, description="Missing required fields")
 
     # Create a new food item
-    new_food_item = FoodItem(
-        vendor_id=data['vendor_id'],
-        name=data['name'],
-        description=data.get('description'),
-        price=data['price'],
-        photo_url=data.get('photo_url'),
-        status=data.get('status', 'active')
-    )
+    new_food_item = FoodItem(**data)
     new_food_item.save()
 
     return make_response(jsonify(new_food_item.to_dict()), 201)
 
-@food_item_api.route('/food_items', methods=['GET'])
+@food_item_api.route('/fooditems', methods=['GET'], strict_slashes=False)
 def get_food_items():
     """
     Retrieve all food items.
@@ -51,7 +44,7 @@ def get_food_items():
     food_items = [item.to_dict() for item in food_items]
     return make_response(jsonify(food_items), 200)
 
-@food_item_api.route('/food_items/<string:food_item_id>', methods=['GET'])
+@food_item_api.route('/fooditems/<string:food_item_id>', methods=['GET'], strict_slashes=False)
 def get_food_item(food_item_id):
     """
     Retrieve a specific food item by ID.
@@ -67,7 +60,7 @@ def get_food_item(food_item_id):
         abort(404, description="Food item not found")
     return jsonify(food_item.to_dict()), 200
 
-@food_item_api.route('/food_items/<string:food_item_id>', methods=['PUT'])
+@food_item_api.route('/fooditems/<string:food_item_id>', methods=['PUT'], strict_slashes=False)
 def update_food_item(food_item_id):
     """
     Update a food item by ID.
@@ -95,7 +88,7 @@ def update_food_item(food_item_id):
 
     return jsonify(food_item.to_dict()), 200
 
-@food_item_api.route('/food_items/<string:food_item_id>', methods=['DELETE'])
+@food_item_api.route('/fooditems/<string:food_item_id>', methods=['DELETE'], strict_slashes=False)
 def delete_food_item(food_item_id):
     """
     Delete a food item by ID.
