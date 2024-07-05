@@ -18,7 +18,7 @@ app = Flask(__name__)
 def inject_now():
     return {'datetime': datetime}
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI', 'sqlite:///db.sqlite3')
 
@@ -28,7 +28,7 @@ login_manager.login_view = 'views.auth_view.login'
 
 with app.app_context():
     db.create_all()
-    
+
 # Initialize Flask-Migrate
 migrate = Migrate(app, db)
 
