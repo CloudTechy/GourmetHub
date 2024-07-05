@@ -26,6 +26,9 @@ db.init_app(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'views.auth_view.login'
 
+with app.app_context():
+    db.create_all()
+    
 # Initialize Flask-Migrate
 migrate = Migrate(app, db)
 
@@ -55,6 +58,6 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
     app.run(debug=True)
